@@ -1,7 +1,7 @@
-import { MatchCard } from '@/components/MatchCard';
-import { LockOfTheDay } from '@/components/LockOfTheDay';
-import { AccuracyTracker } from '@/components/AccuracyTracker';
-import { matches } from '@/lib/matches';
+import { MatchCard } from '../components/MatchCard'
+import { LockOfTheDay } from '../components/LockOfTheDay'
+import { AccuracyTracker } from '../components/AccuracyTracker'
+import { matches } from '../lib/matches'
 
 export default function Home() {
   const todaysMatches = matches.filter(m => m.time.startsWith('Nov 29') || m.time.startsWith('Nov 30') || m.time.startsWith('Dec 1'));
