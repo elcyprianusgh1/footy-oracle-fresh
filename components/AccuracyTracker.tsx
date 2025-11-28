@@ -1,28 +1,22 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 
 const data = [
-  { month: 'Aug', units: 25.3 },
-  { month: 'Sep', units: 48.7 },
-  { month: 'Oct', units: 89.2 },
-  { month: 'Nov', units: 127.8 },
-];
+  { month: 'Oct', acc: 68 }, { month: 'Nov', acc: 72 }, { month: 'Dec', acc: 76 },
+  { month: 'Jan', acc: 79 }, { month: 'Feb', acc: 82 }, { month: 'Mar', acc: 86 },
+]
 
 export function AccuracyTracker() {
   return (
-    <section className="max-w-4xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold mb-6 text-center">Accuracy Tracker – YTD Performance</h2>
-      <div className="glass rounded-xl p-6">
-        <p className="text-center mb-4">+127.8 Units | 68.4% Win Rate | 245 Picks</p>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.3} />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="units" stroke="var(--accent-green)" strokeWidth={3} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-    </section>
-  );
+    <div className="bg-white rounded-xl shadow-lg p-6">
+      <h3 className="text-2xl font-bold mb-6 text-center">Accuracy This Season</h3>
+      <ResponsiveContainer width="100%" height={220}>
+        <LineChart data={data}>
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Line type="monotone" dataKey="acc" stroke="#10b981" strokeWidth={5} dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
+      <p className="text-center text-5xl font-black text-green-600 mt-6">86%</p>
+    </div>
+  )
 }
